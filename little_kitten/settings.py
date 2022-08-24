@@ -54,7 +54,9 @@ ROOT_URLCONF = 'little_kitten.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            'C:/Users/Erik/Desktop/Erik/Coderhouse/primer_django/little_kitten/plantillas',
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

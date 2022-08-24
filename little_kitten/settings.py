@@ -55,7 +55,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            'C:/Users/Erik/Desktop/Erik/Coderhouse/primer_django/little_kitten/plantillas',
+            'C:/Users/Erik/Desktop/Erik/Continuacion/primer_django/little_kitten/plantillas',
         ],
         'APP_DIRS': True,
         'OPTIONS': {

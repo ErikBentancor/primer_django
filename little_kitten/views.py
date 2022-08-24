@@ -1,10 +1,9 @@
 from django.http import HttpResponse 
-from django.template import Template, Context
+from django.template import Template, Context, loader
 from datetime import datetime, timedelta
-from django.template import loader
 
 def saludo(request):
-    return HttpResponse("Hola people")
+    return HttpResponse("Hola")
 
 1
 def segunda_vista(request):
@@ -29,8 +28,8 @@ def age(request, edad):
     return HttpResponse(texto)
 
 
-def probar_template(request):
-    with open('C:/Users/Erik/Desktop/Erik/Coderhouse/primer_django/little_kitten/plantillas/planilla1.html') as archivo: #copiar el relative path
+def probar_template_legacy(request):
+    with open('C:/Users/Erik/Desktop/Erik/Continuacion/primer_django/little_kitten/plantillas/planilla1.html') as archivo: #copiar el relative path
         #Crear la plantilla en memoria
         plantilla = Template(archivo.read()) #Pasamos como argumento el contennido del HTML
     diccionario = {"nombre": "Erik", "apellido": "Bnt", "lista_de_notas": [10,5,6,5,6]}
@@ -38,5 +37,25 @@ def probar_template(request):
     contexto = Context(diccionario) #contexto va a estar vacio
     
     texto_html = plantilla.render(contexto)
+
+    return HttpResponse(texto_html)
+
+def probar_template(request):
+  
+    diccionario = {"nombre": "Maira", "apellido": "Jaque Rolon", "lista_de_notas": [10,5,6,5,6]}
+
+    plantilla= loader.get_template('planilla1.html')
+
+    texto_html = plantilla.render(diccionario)
+
+    return HttpResponse(texto_html)
+
+def template_amor(request):
+
+    diccionario = {"nombre": "Maira", "apellido": "Jaque Rolon", "lista_de_notas": [10,5,8,8,8]}
+
+    plantilla= loader.get_template('planilla2.html')
+
+    texto_html = plantilla.render(diccionario)
 
     return HttpResponse(texto_html)
